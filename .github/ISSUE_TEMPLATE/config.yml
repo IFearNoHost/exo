@@ -1,7 +1,7 @@
 blank_issues_enabled: false
 contact_links:
   - name: Ask a Question
-    url: https://github.com/fozooni/exo/discussions/new?category=q-a
+    url: https://github.com/fozooni/exo/issues/new?labels=question
     about: Ask the community for help
   - name: Security Vulnerabilities
     url: https://github.com/fozooni/exo/security/advisories/new
