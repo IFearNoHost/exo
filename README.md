@@ -130,6 +130,50 @@ await tool.execute({});
 const strictSpec = weatherTool.getOpenAISpec({ strict: true });
 ```
 
+### Middleware Pipeline
+
+Intercept and modify execution flow. Useful for logging, caching, or altering arguments.
+
+```typescript
+const loggingMiddleware: ExoMiddleware = async ({ toolName, args, next }) => {
+  console.log(`Extensions: Running ${toolName}`);
+  const result = await next();
+  console.log(`Extensions: Finished ${toolName}`);
+  return result;
+};
+
+const tool = createExoTool({
+  // ... other options
+  config: {
+    middleware: [loggingMiddleware],
+  },
+});
+```
+
+### Built-in Rate Limiting
+
+Protect your tools from overuse with zero extra infrastructure.
+
+```typescript
+import { createExoTool, createRateLimiter } from "@fozooni/exo";
+
+// Limit to 10 requests per minute
+const limiter = createRateLimiter({
+  windowMs: 60 * 1000,
+  limit: 10,
+  // Optional: Custom key generator (defaults to toolName:userId)
+  keyGenerator: (context) => context.userId,
+});
+
+const searchTool = createExoTool({
+  name: "search",
+  // ...
+  config: {
+    middleware: [limiter],
+  },
+});
+```
+
 ## API Reference
 
 ### Core Classes
