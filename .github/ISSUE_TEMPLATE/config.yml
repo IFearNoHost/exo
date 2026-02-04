@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Ask a Question
+    url: https://github.com/fozooni/exo/discussions/new?category=q-a
+    about: Ask the community for help
+  - name: Security Vulnerabilities
+    url: https://github.com/fozooni/exo/security/advisories/new
+    about: Please report security vulnerabilities privately
